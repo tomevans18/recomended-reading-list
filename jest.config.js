@@ -12,7 +12,7 @@ const moduleNameMapper = {
 module.exports = {
   roots: ['<rootDir>'],
   collectCoverage: true,
-  collectCoverageFrom: ['src/*.{ts,tsx}'],
+  collectCoverageFrom: ['src/**/*.{ts,tsx}'],
   coverageReporters: ['lcov', 'text'],
   coverageThreshold: {
     global: {
