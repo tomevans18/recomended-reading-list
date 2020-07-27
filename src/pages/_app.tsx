@@ -2,12 +2,8 @@ import { ReactElement } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import theme from '@styles/theme';
 
-const theme = {
-  colors: {
-    primary: '#0070f3'
-  }
-};
 function MyApp({ Component, pageProps }: AppProps): ReactElement {
   return (
     <>

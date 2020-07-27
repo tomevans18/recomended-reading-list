@@ -5,8 +5,7 @@ const moduleNameMapper = {
   '@pages/(.*)': '<rootDir>/src/pages/$1',
   '@styles/(.*)': '<rootDir>/src/styles/$1',
   '@lib/(.*)': '<rootDir>/src/lib/$1',
-  '@test/(.*)': '<rootDir>/test/$1',
-  'styled-components': '<rootDir>/node_modules/styled-components'
+  '@test/(.*)': '<rootDir>/test/$1'
 };
 
 module.exports = {
@@ -38,7 +37,7 @@ module.exports = {
         '**/__tests__/**/!(!*.node).(spec|test).ts?(x)',
         '**/!(*.node).(spec|test).ts?(x)'
       ],
-      // setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+      setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
       modulePaths: ['<rootDir>'],
       moduleNameMapper
     },
