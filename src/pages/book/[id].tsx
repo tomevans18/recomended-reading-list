@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import BookDetailsLayout from '@components/layouts/book-details';
 import BookDetails, { BookDetailsSkeleton } from '@components/book-details';
 import { ErrorLike } from '@libs/fetcher';
+import Head from 'next/head';
 
 function Book(): ReactElement {
   const { data: bookList, error } = useSWR<ReadingList, ErrorLike>('http://localhost:3000/api');
@@ -30,9 +31,14 @@ function Book(): ReactElement {
   );
 
   return (
-    <BookDetailsLayout book={book}>
-      <BookDetails book={book} authorsOtherBooks={authorsOtherBooks} />
-    </BookDetailsLayout>
+    <>
+      <Head>
+        <title>{book.title} - Recommended Reading List</title>
+      </Head>
+      <BookDetailsLayout book={book}>
+        <BookDetails book={book} authorsOtherBooks={authorsOtherBooks} />
+      </BookDetailsLayout>
+    </>
   );
 }
 

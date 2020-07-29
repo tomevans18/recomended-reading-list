@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps): ReactElement {
   return (
     <>
       <Head>
-        <title>Book Recommendation</title>
+        <title>Recommended Reading List</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
