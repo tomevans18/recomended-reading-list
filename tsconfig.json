@@ -18,8 +18,9 @@
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
       "@styles/*": ["src/styles/*"],
-      "@lib/*": ["src/lib/*"],
-      "@test/*": ["test/*"],
+      "@libs/*": ["src/libs/*"],
+      "@tests/*": ["tests/*"],
+      "@models/*": ["src/models/*"]
     },
   },
   "exclude": ["node_modules", ".next", "out"],

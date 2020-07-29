@@ -4,15 +4,15 @@ const moduleNameMapper = {
   '@components/(.*)': '<rootDir>/src/components/$1',
   '@pages/(.*)': '<rootDir>/src/pages/$1',
   '@styles/(.*)': '<rootDir>/src/styles/$1',
-  '@lib/(.*)': '<rootDir>/src/lib/$1',
-  '@test/(.*)': '<rootDir>/test/$1',
-  'styled-components': '<rootDir>/node_modules/styled-components'
+  '@libs/(.*)': '<rootDir>/src/libs/$1',
+  '@tests/(.*)': '<rootDir>/tests/$1',
+  '@models/(.*)': '<rootDir>/models/$1'
 };
 
 module.exports = {
   roots: ['<rootDir>'],
   collectCoverage: true,
-  collectCoverageFrom: ['src/*.{ts,tsx}'],
+  collectCoverageFrom: ['src/**/*.{ts,tsx}'],
   coverageReporters: ['lcov', 'text'],
   coverageThreshold: {
     global: {
@@ -38,7 +38,7 @@ module.exports = {
         '**/__tests__/**/!(!*.node).(spec|test).ts?(x)',
         '**/!(*.node).(spec|test).ts?(x)'
       ],
-      // setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+      setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
       modulePaths: ['<rootDir>'],
       moduleNameMapper
     },

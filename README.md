@@ -1,48 +1,57 @@
-# NextJS Typescript Boilerplate
+# Recommended Reading List Technical Test
 
-Bootstrap a developer-friendly NextJS app configured with:
+## Acceptance criteria
 
-- [Typescript](https://www.typescriptlang.org/)
-- Linting with [ESLint](https://eslint.org/)
-- Formatting with [Prettier](https://prettier.io/)
-- Linting, typechecking and formatting on by default using [`husky`](https://github.com/typicode/husky) for commit hooks
-- Testing with [Jest](https://jestjs.io/) and [`react-testing-library`](https://testing-library.com/docs/react-testing-library/intro)
+- Fetch data from https://hokodo-frontend-interview.netlify.com/data.json
+- Display the list of books on a page, each book item showing
+  - Book title
+  - Author name
+  - Cover image (thumbnail size)
+  - 'More information' link
+- Clicking on the 'More information' link should open another page showing
+  - Book title
+  - Author name
+  - ISBN
+  - Cover image (full size)
+  - A list of book titles by the same Author (with links)
+  - 'Back to list' link
 
-## Deploy your own
+## Running the code
 
-Deploy the example using [Vercel](https://vercel.com):
+### Prerequisites
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/next.js/tree/canary/examples/with-typescript-eslint-jest)
+You must have the following installed:
 
-## How to use
+- Node.js version 12 or higher
+- Yarn
 
-### Using `create-next-app`
+### Running the project in dev mode
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-typescript-eslint-jest with-typescript-eslint-jest-app
-# or
-yarn create next-app --example with-typescript-eslint-jest with-typescript-eslint-jest-app
-```
-
-### Download manually
-
-Download the example:
-
-```bash
-curl https://codeload.github.com/vercel/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/with-typescript-eslint-jest
-cd with-typescript-eslint-jest
-```
-
-Install it and run:
+Navigate to the project folder via a terminal.
+Then run the following command to install all project dependencies (including development).
 
 ```bash
-npm install
-npm run dev
-# or
 yarn
 yarn dev
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+### Running the project in production
+
+Navigate to the project folder via a terminal.
+Then run the following command to install all project dependencies (including development).
+
+```bash
+yarn
+yarn build
+yarn --production
+NODE_ENV=production yarn start
+```
+
+## Notes
+
+- the API route provides a proxy to the json file as CORs would prevent direct browser access
+- SWR uses context to cache the content cross page, meaning a global state manager is unnecessary (e.g. context, redux, mobx)
+- I chose Next.js as the framework because of its community support, developer experience, working relationship with the core Google Chrome and Facebook React team
+- For the images I would have liked the ability to embed an svg placeholder or used another method as the current approach can cause some initial jumps
+- I haven't looked into error states as I felt this was unneeded as part of this test
+- I would have liked to add transitions and animations but the time didn't allow for this

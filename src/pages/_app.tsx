@@ -2,12 +2,18 @@ import { ReactElement } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import theme from '@styles/theme';
+import fetcher from '@libs/fetcher';
+import { SWRConfig } from 'swr';
+import 'nprogress/nprogress.css';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+import GlobalStyle from '@styles/global.style';
 
-const theme = {
-  colors: {
-    primary: '#0070f3'
-  }
-};
+Router.events.on('routeChangeStart', () => NProgress.start());
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done());
+
 function MyApp({ Component, pageProps }: AppProps): ReactElement {
   return (
     <>
@@ -15,10 +21,19 @@ function MyApp({ Component, pageProps }: AppProps): ReactElement {
         <title>Book Recommendation</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <GlobalStyle />
+
       <ThemeProvider theme={theme}>
-        {/* NOTE: Spread needed as component props are unknown */}
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Component {...pageProps} />
+        <SWRConfig
+          value={{
+            fetcher
+          }}
+        >
+          {/* NOTE: Spread needed as component props are unknown */}
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <Component {...pageProps} />
+        </SWRConfig>
       </ThemeProvider>
     </>
   );
