@@ -55,3 +55,4 @@ NODE_ENV=production yarn start
 - For the images I would have liked the ability to embed an svg placeholder or used another method as the current approach can cause some initial jumps
 - I haven't looked into error states as I felt this was unneeded as part of this test
 - I would have liked to add transitions and animations but the time didn't allow for this
+- I haven't completed tests for the app shell or server document as these are passively tested but I would add these tests for a true production application
